@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.string "comment", limit: 150
+    t.integer "user_id"
+    t.integer "wine_id"
   end
 
   create_table "users", force: :cascade do |t|

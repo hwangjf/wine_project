@@ -55,6 +55,7 @@ def wine_category(wine_color)
       puts "Please select 1, 2, 3, or 4."
       num = gets.chomp
     end
+    white_varietal_selected(num)
   end
 end
 # Chardonnay, Riesling, Pinot Grigio, Sauvignon Blanc
