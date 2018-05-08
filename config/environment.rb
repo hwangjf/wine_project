@@ -14,3 +14,5 @@ ActiveRecord::Base.logger = nil
 
 require_all 'app'
 require_all 'lib'
+require 'json'
+require 'open-uri'
