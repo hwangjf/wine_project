@@ -1,5 +1,7 @@
 require_relative 'red_wine.rb'
 
+my_id = 0
+
 def greeting
   "Hello! Welcome to Wineopedia!"
   get_user_name
@@ -8,7 +10,10 @@ end
 def get_user_name
   puts "Please enter your name: "
   name = gets.chomp
-  User.find_or_create_by(name: name)
+  i_am = User.find_or_create_by(name: name)
+
+  $my_id = i_am.id
+  choose_category
 end
 
 def choose_category
@@ -58,13 +63,3 @@ def wine_category(wine_color)
     white_varietal_selected(num)
   end
 end
-# Chardonnay, Riesling, Pinot Grigio, Sauvignon Blanc
-  # Cabernet Sauvignon, Pinot Noir, Syrah, Zinfandel, Malbec, Merlot
-
-
-
-# def choose_varietal
-#   puts "Please select type: "
-#   varietal = gets.chomp
-#
-# end

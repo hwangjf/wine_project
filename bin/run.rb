@@ -3,4 +3,3 @@ require_relative "../config/environment.rb"
 require 'pry'
 
 greeting
-choose_category
