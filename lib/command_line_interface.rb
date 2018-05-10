@@ -46,7 +46,7 @@ def wine_category(wine_color)
     num = gets.chomp
     # binding.pry
     while num != "1" && num != "2" && num != "3" && num != "4" && num != "5"
-      puts "Please select 1, 2, 3, 4, or 5."
+      puts "Please select a number."
       num = gets.chomp
     end
     red_varietal_selected(num)
@@ -57,7 +57,7 @@ def wine_category(wine_color)
     puts "4. Sauvignon Blanc"
     num = gets.chomp
     while num != "1" && num != "2" && num != "3" && num != "4"
-      puts "Please select 1, 2, 3, or 4."
+      puts "Please select a number."
       num = gets.chomp
     end
     white_varietal_selected(num)
