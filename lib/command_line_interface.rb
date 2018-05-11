@@ -10,6 +10,7 @@ end
 def get_user_name
   puts "Please enter your name: "
   name = gets.chomp
+  puts ""
   i_am = User.find_or_create_by(name: name)
 
   $my_id = i_am.id
@@ -20,10 +21,12 @@ def choose_category
   puts "Please select a number: "
   puts "1. Red Wine"
   puts "2. White Wine"
+  puts ""
   num = gets.chomp
   while num != "1" && num != "2"
     puts "Please select 1 or 2."
     num = gets.chomp
+    puts ""
   end
   if num == "1"
     wine_category("Red Wine")
@@ -33,9 +36,6 @@ def choose_category
 end
 
 def wine_category(wine_color)
-  # Wine.where(category: ).limit(3).map do |wine|
-  #   puts wine["name"]
-  # end
   if wine_color == "Red Wine"
     puts "Please select a number: "
     puts "1. Cabernet Sauvignon"
@@ -43,11 +43,15 @@ def wine_category(wine_color)
     puts "3. Merlot"
     puts "4. Pinot Noir"
     puts "5. Zinfandel"
-    num = gets.chomp
+    puts "\n---------------------\n"
+    num = gets.chomp.to_i
     # binding.pry
-    while num != "1" && num != "2" && num != "3" && num != "4" && num != "5"
-      puts "Please select a number."
-      num = gets.chomp
+
+    puts ""
+    while [1, 2, 3, 4, 5].include?(num) == false
+      puts "Please select a valid number."
+      num = gets.chomp.to_i
+      puts ""
     end
     red_varietal_selected(num)
   else wine_color == "White Wine"
@@ -55,10 +59,13 @@ def wine_category(wine_color)
     puts "2. Pinot Grigio"
     puts "3. Riesling"
     puts "4. Sauvignon Blanc"
-    num = gets.chomp
-    while num != "1" && num != "2" && num != "3" && num != "4"
-      puts "Please select a number."
-      num = gets.chomp
+    puts "\n---------------------\n"
+    num = gets.chomp.to_i
+    puts ""
+    while [1, 2, 3, 4].include?(num) == false
+      puts "Please select a valid number."
+      num = gets.chomp.to_i
+      puts ""
     end
     white_varietal_selected(num)
   end
