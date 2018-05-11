@@ -10,12 +10,12 @@ def my_review(wine_id)
   puts "Please enter a comment(150 character limit)."
   comment = gets.chomp
   Review.create(rating: rating, comment: comment, user_id: $my_id, wine_id: wine_id)
+  puts "\n---------------------"
   puts "Thank you for the review!"
   puts "Please select a number:"
   puts "1. See my reviews"
   puts "2. See more wines"
   puts "3. Exit"
-  puts "\n---------------------\n"
   num = gets.chomp.to_i
   while [1, 2, 3].include?(num) == false
     puts "Please enter a valid number."
@@ -56,12 +56,12 @@ def see_reviews
   puts "Press enter to continue."
   gets.chomp
 
+  puts "\n---------------------"
   puts "Please select a number: "
   puts "1. Edit review"
   puts "2. Delete review"
   puts "3. See more wines"
   puts "4. Exit"
-  puts "\n---------------------\n"
   num = gets.chomp.to_i
   while [1, 2, 3, 4].include?(num) == false
     puts "Please select a valid number:"
@@ -99,7 +99,7 @@ def edit_review
     end
     n += 1
   end
-  puts "\n---------------------\n"
+  puts "\n---------------------"
   puts "Please enter a number for the review you would like to edit:"
   num = gets.chomp.to_i
   while (1..the_reviews.length).to_a.include?(num) == false
@@ -109,7 +109,7 @@ def edit_review
   edit_selection = the_reviews[num-1]
   puts "Please enter a rating 1 to 5."
 
-  rating = gets.chomp
+  rating = gets.chomp.to_i
 
   while [1, 2, 3, 4, 5].include?(rating) == false
     puts "Please enter a valid rating 1 to 5."
@@ -136,11 +136,11 @@ def edit_review
       puts "#{key}: #{value}"
     end
   end
+  puts "\n---------------------"
   puts "Please select a number: "
   puts "1. Edit review"
   puts "2. See more wines"
   puts "3. Exit"
-  puts "\n---------------------\n"
   num = gets.chomp.to_i
   while [1, 2, 3].include?(num) == false
     puts "Please enter a valid number."
@@ -177,7 +177,7 @@ def delete_review
     end
     n += 1
   end
-  puts "\n---------------------\n"
+  puts "\n---------------------"
   puts "Please enter a number for the review you would like to delete:"
   num = gets.chomp.to_i
 
@@ -186,12 +186,12 @@ def delete_review
     num = gets.chomp.to_i
   end
 
+  puts "\n---------------------"
   puts "Are you sure you would like to delete this review?"
   puts "Please enter a number:"
   puts "1. Delete this review, I made a huge mistake!"
   puts "2. Oops, I just want to see more wine!"
   puts "3. I just want to go home."
-  puts "\n---------------------\n"
   confirmation = gets.chomp.to_i
   while [1, 2, 3].include?(num) == false
     puts "Please select a valid number."
@@ -199,11 +199,11 @@ def delete_review
   end
   if confirmation == 1
     User.find($my_id).reviews[num-1].delete
+    puts "\n---------------------"
     puts "Review has been successfully deleted.\n"
     puts "Please select a number:"
     puts "1. View more wines."
     puts "2. Exit"
-    puts "\n---------------------\n"
     num_one = gets.chomp.to_i
 
     while [1, 2].include?(num) == false

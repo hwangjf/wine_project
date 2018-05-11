@@ -18,6 +18,7 @@ def search_for_varietal(varietal)
 end
 
 def prints_wine_and_options(varietal, x)
+  puts "\n---------------------\n"
   puts "Here is a list of 10 delicious #{varietal} wines!"
   puts "Please select a number for more details: "
   n = 1
@@ -26,7 +27,6 @@ def prints_wine_and_options(varietal, x)
     n += 1
   end
   puts "11. See more wines"
-  puts "\n---------------------\n"
 
   num = gets.chomp.to_i
 

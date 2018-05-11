@@ -37,29 +37,27 @@ end
 
 def wine_category(wine_color)
   if wine_color == "Red Wine"
+    puts "\n---------------------"
     puts "Please select a number: "
     puts "1. Cabernet Sauvignon"
     puts "2. Malbec"
     puts "3. Merlot"
     puts "4. Pinot Noir"
     puts "5. Zinfandel"
-    puts "\n---------------------\n"
     num = gets.chomp.to_i
     # binding.pry
 
-    puts ""
     while [1, 2, 3, 4, 5].include?(num) == false
       puts "Please select a valid number."
       num = gets.chomp.to_i
-      puts ""
     end
     red_varietal_selected(num)
   else wine_color == "White Wine"
+    puts "\n---------------------"
     puts "1. Chardonnay"
     puts "2. Pinot Grigio"
     puts "3. Riesling"
     puts "4. Sauvignon Blanc"
-    puts "\n---------------------\n"
     num = gets.chomp.to_i
     puts ""
     while [1, 2, 3, 4].include?(num) == false
